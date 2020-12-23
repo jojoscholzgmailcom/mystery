@@ -7,12 +7,12 @@ var val = 0;
 outerRing.onload=function(){
     drawRotatedImage(outerRing,150,150,c.width,c.height, 5- val*10);
 };
-outerRing.src="wheel.gif";
+outerRing.src="wheel.png";
 var innerRing = new Image();
 innerRing.onload=function(){
     drawRotatedImage(innerRing,150,150, 225, 225, 5);
 };
-innerRing.src="wheel.gif";
+innerRing.src="wheel.png";
 var TO_RADIANS = Math.PI/180; 
 function drawRotatedImage(image, x, y, width, height, angle){ 
     ctx.save(); 
