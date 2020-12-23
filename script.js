@@ -1,0 +1,31 @@
+var c = document.getElementById('canvas');
+var ctx = c.getContext("2d");
+var slider = document.getElementById("myRange");
+var output = document.getElementById("value");
+var outerRing = new Image();
+var val = 0;
+outerRing.onload=function(){
+    drawRotatedImage(outerRing,150,150,c.width,c.height, 5- val*10);
+};
+outerRing.src="wheel.gif";
+var innerRing = new Image();
+innerRing.onload=function(){
+    drawRotatedImage(innerRing,150,150, 225, 225, 5);
+};
+innerRing.src="wheel.gif";
+var TO_RADIANS = Math.PI/180; 
+function drawRotatedImage(image, x, y, width, height, angle){ 
+    ctx.save(); 
+    ctx.translate(x, y);
+    ctx.rotate(angle * TO_RADIANS);
+    ctx.drawImage(image, -(width/2), -(height/2), width, height);
+    ctx.restore(); 
+}
+
+slider.oninput = function() {
+    ctx.clearRect(0,0,c.width,c.height);
+    val = this.value;
+    output.innerHTML = this.value;
+    drawRotatedImage(outerRing,150,150,c.width,c.height, 5-this.value*13.84615);
+    drawRotatedImage(innerRing,150,150, 225, 225, 5);
+}
