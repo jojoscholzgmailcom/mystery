@@ -10,7 +10,7 @@ outerRing.onload=function(){
 outerRing.src="wheel.png";
 var innerRing = new Image();
 innerRing.onload=function(){
-    drawRotatedImage(innerRing,150,150, 225, 225, 5);
+    drawRotatedImage(innerRing,150,150, c.width*0.75, c.height*0.75, 5);
 };
 innerRing.src="wheel.png";
 var TO_RADIANS = Math.PI/180; 
@@ -27,5 +27,5 @@ slider.oninput = function() {
     val = this.value;
     output.innerHTML = this.value;
     drawRotatedImage(outerRing,150,150,c.width,c.height, 5-this.value*13.84615);
-    drawRotatedImage(innerRing,150,150, 225, 225, 5);
+    drawRotatedImage(innerRing,150,150, c.width*0.75, c.height*0.75, 5);
 }
